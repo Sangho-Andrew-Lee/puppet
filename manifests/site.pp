@@ -84,7 +84,7 @@ node 'ip-172-31-25-212' {
   ################################################################
 
   #Make sure this is updated
-  file { '/usr/share/php/includes/composer.json':
+  file { '/usr/share/php5/includes/composer.json':
     ensure  => file,
     require => [Package['php5-mcrypt'], Composer::Install_composer['composer-install'], File['cli-mcrypt-symlink'], File['apache2-mcrypt-symlink']],
     source  => 'puppet:///files/composer/composer.json'
