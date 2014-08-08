@@ -96,7 +96,7 @@ node 'ip-172-31-25-212' {
     command     => 'composer update',
     environment => ["COMPOSER_HOME=/usr/bin/composer"],
     path        => ["/usr/local/bin", "/usr/bin"],
-    require     => File['/usr/share/php/includes/composer.json']
+    require     => File['/usr/share/php5/includes/composer.json']
   }
 
   file { '/etc/php5/apache2/conf.d/cakephp.ini':

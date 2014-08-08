@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7df6a7f9-5035-4ec0-912a-402f69168264" name="Default" comment="installing composer / cakephp and symlinking the mcrypt">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manifests/site.pp" afterPath="$PROJECT_DIR$/manifests/site.pp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="puppet.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +28,7 @@
       <file leaf-file-name="site.pp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/manifests/site.pp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="25" selection-start="2140" selection-end="2140" vertical-scroll-proportion="0.75757575" vertical-offset="873" max-vertical-offset="2070">
+            <state line="74" column="0" selection-start="1822" selection-end="1822" vertical-scroll-proportion="0.27272728" vertical-offset="1089" max-vertical-offset="2070">
               <folding />
             </state>
           </provider>
@@ -405,7 +404,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/manifests/site.pp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="25" selection-start="2140" selection-end="2140" vertical-scroll-proportion="0.75757575" vertical-offset="873" max-vertical-offset="2070">
+        <state line="74" column="0" selection-start="1822" selection-end="1822" vertical-scroll-proportion="0.27272728" vertical-offset="1089" max-vertical-offset="2070">
           <folding />
         </state>
       </provider>
