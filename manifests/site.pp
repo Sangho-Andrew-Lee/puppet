@@ -45,5 +45,65 @@ node 'ip-172-31-25-212' {
     source  => 'puppet:///files/common/ssh/authorized_keys'
   }
 
+
+  ################################################################
+  ##
+  ## Start of the PHP5 settings
+  ##
+  ################################################################
+
+
+  file { "/etc/php5/apache2/conf.d/20-mcrypt.ini":
+    ensure  => link,
+    target  => '/etc/php5/conf.d/mcrypt.ini',
+    require => Package['php5-mcrypt'],
+    alias   => 'apache2-mcrypt-symlink'
+  }
+
+  file { "/etc/php5/cli/conf.d/20-mcrypt.ini":
+    ensure  => link,
+    target  => '/etc/php5/conf.d/mcrypt.ini',
+    require => Package['php5-mcrypt'],
+    alias   => 'cli-mcrypt-symlink'
+  }
+
+  ################################################################
+  ##
+  ## Start of the Composer installation
+  ##
+  ################################################################
+
+  class { 'composer': }
+
+  composer::install_composer {'composer-install':  }
+
+  ################################################################
+  ##
+  ## Start of the CakePHP installation
+  ##
+  ################################################################
+
+  #Make sure this is updated
+  file { '/usr/share/php/includes/composer.json':
+    ensure  => file,
+    require => [Package['php5-mcrypt'], Composer::Install_composer['composer-install'], File['cli-mcrypt-symlink'], File['apache2-mcrypt-symlink']],
+    source  => 'puppet:///files/composer/composer.json'
+  }
+
+  #Creating a vendor/
+  exec { 'cakephp-install':
+    cwd         => '/usr/share/php/includes',
+    command     => 'composer update',
+    environment => ["COMPOSER_HOME=/usr/bin/composer"],
+    path        => ["/usr/local/bin", "/usr/bin"],
+    require     => File['/usr/share/php/includes/composer.json']
+  }
+
+  file { '/etc/php5/apache2/conf.d/cakephp.ini':
+    ensure  => file,
+    source  => 'puppet:///files/api-vm/space/cakephp.ini',
+    require => Exec['cakephp-install']
+  }
+
 }
 
