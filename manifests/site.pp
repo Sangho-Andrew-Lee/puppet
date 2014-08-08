@@ -92,7 +92,7 @@ node 'ip-172-31-25-212' {
 
   #Creating a vendor/
   exec { 'cakephp-install':
-    cwd         => '/usr/share/php/includes',
+    cwd         => '/usr/share/php5/includes',
     command     => 'composer update',
     environment => ["COMPOSER_HOME=/usr/bin/composer"],
     path        => ["/usr/local/bin", "/usr/bin"],
