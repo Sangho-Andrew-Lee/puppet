@@ -42,7 +42,7 @@ node 'ip-172-31-25-212' {
     owner   => 'root',
     mode    => '0600',
     group   => 'root',
-    source  => 'puppet:///files/common/ssh/authorized_keys'
+    source  => 'puppet://files/common/ssh/authorized_keys'
   }
 
 
@@ -87,7 +87,7 @@ node 'ip-172-31-25-212' {
   file { '/usr/share/php5/includes/composer.json':
     ensure  => file,
     require => [Package['php5-mcrypt'], Composer::Install_composer['composer-install'], File['cli-mcrypt-symlink'], File['apache2-mcrypt-symlink']],
-    source  => 'puppet:///files/composer/composer.json'
+    source  => 'puppet://files/composer/composer.json'
   }
 
   #Creating a vendor/
@@ -101,7 +101,7 @@ node 'ip-172-31-25-212' {
 
   file { '/etc/php5/apache2/conf.d/cakephp.ini':
     ensure  => file,
-    source  => 'puppet:///files/api-vm/space/cakephp.ini',
+    source  => 'puppet://files/php5/cakephp.ini',
     require => Exec['cakephp-install']
   }
 
