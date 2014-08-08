@@ -55,14 +55,14 @@ node 'ip-172-31-25-212' {
 
   file { "/etc/php5/apache2/conf.d/20-mcrypt.ini":
     ensure  => link,
-    target  => '/etc/php5/conf.d/mcrypt.ini',
+    target  => '/etc/php5/mods-available/mcrypt.ini',
     require => Package['php5-mcrypt'],
     alias   => 'apache2-mcrypt-symlink'
   }
 
   file { "/etc/php5/cli/conf.d/20-mcrypt.ini":
     ensure  => link,
-    target  => '/etc/php5/conf.d/mcrypt.ini',
+    target  => '/etc/php5/mods-available/mcrypt.ini',
     require => Package['php5-mcrypt'],
     alias   => 'cli-mcrypt-symlink'
   }
