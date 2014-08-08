@@ -10,7 +10,7 @@ stage { 'first':
   before => Stage['main'],
 }
 
-node 'common' {
+node 'ip-172-31-25-212' {
 
    #This is where all of the common packages go for all servers
   package {
