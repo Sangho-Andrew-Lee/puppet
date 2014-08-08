@@ -1,0 +1,6 @@
+{
+    "name": "everGreenHillChurch",
+    "require": {
+        "cakephp/cakephp": "2.5.*"
+    }
+}
